@@ -1,6 +1,4 @@
-<ul>
-  <li ng-repeat="item in $ctrl.items"
-      ui-sref="({categoriesShortName: {{item.short_name}}})">
-    {{ item.id }}. {{ item.name }}({{item.short_name}})
-  </li>
-</ul>
+<a ui-sref="home">Home</a>&lt;
+<span>categories</span>
+<h5>Available Categories</h5>
+<categories items="catListCtrl.items"></categories>

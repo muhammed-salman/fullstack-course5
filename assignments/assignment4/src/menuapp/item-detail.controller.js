@@ -2,15 +2,13 @@
 'use strict';
 
 angular.module('MenuApp')
-.controller('CategoriesDetailController', CategoriesDetailController);
+.controller('ItemDetailController', ItemDetailController);
 
 // 'item' is injected through state's resolve
-CategoriesDetailController.$inject = ['item']
-function CategoriesDetailController(item) {
-  var catDetail = this;
-  catDetail.name = item.name;
-  catDetail.quantity = item.quantity;
-  catDetail.description = item.description;
+ItemDetailController.$inject = ['MenuDataService','itemslist'];
+function ItemDetailController(MenuDataService,itemslist) {
+  var itemDetailCtrl = this;
+  itemDetailCtrl.itemslist=itemslist;
 }
 
 })();
