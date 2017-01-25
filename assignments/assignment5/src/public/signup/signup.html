@@ -1,0 +1,55 @@
+<div class="container">
+<div class="row">
+	<div class="col-sm-10 col-md-10 col-lg-10 " ><h1>Registration Form</h1></div>
+	<form name="signupForm" class="signup" novalidate>
+		<div class="col-sm-10 col-md-10 col-lg-10 " >
+			<label>First Name : <input type="text" name="firstName" ng-model="signUpCtrl.firstName" style="margin-left: 3.5em;" required minlength="3" ng-maxlength="30" placeholder="Max: 30 Characters. Min: 3 Characters" /></label>
+			<!-- {{signUpCtrl.firstName}} -->
+			 <span
+            ng-if="(signupForm.firstName.$error.minlength || signupForm.firstName.$error.required) && signupForm.firstName.$touched">
+            First Name must be at least 3 characters long
+          	</span>
+          	<span ng-if="signupForm.firstName.$error.maxlength && signupForm.firstName.$touched">
+            First Name must not be longer than 30 characters
+          	</span>
+		</div>
+		<div class="col-sm-10 col-md-10 col-lg-10" style="margin-top: 10px;">
+			<label>Last Name : <input type="text" name="lastName" ng-model="signUpCtrl.lastName" style="margin-left: 3.6em;" required minlength="1" ng-maxlength="15" placeholder="Max: 15 Characters. Min: 1 Characters"/></label>
+			<!-- {{signUpCtrl.lastName}} -->
+			<span
+            ng-if="(signupForm.lastName.$error.minlength || signupForm.lastName.$error.required) && signupForm.lastName.$touched">
+            Last Name must be at least 1 characters long (At Least Initials)
+          	</span>
+          	<span ng-if="signupForm.lastName.$error.maxlength && signupForm.lastName.$touched">
+            First Name must not be longer than 15 characters
+          	</span>
+		</div>
+		<div class="col-sm-10 col-md-10 col-lg-10" style="margin-top: 10px;">
+			<label>Email Address: <input type="email" name="email" ng-model="signUpCtrl.email" style="margin-left: 2.2em;" required /></label>
+			<!-- {{signUpCtrl.email}} -->
+			<span ng-if="(signupForm.email.$invalid || signupForm.email.required) && signupForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+		</div>
+		<div class="col-sm-10 col-md-10 col-lg-10" style="margin-top: 10px;">
+			<label>Phone Number : <input type="text" name="phone" ng-model="signUpCtrl.phoneNumber" style="margin-left: 1.6em;" pattern="(\d{3})-(\d{3})-(\d{4})"  required /></label>
+			<!-- {{signUpCtrl.phoneNumber} -->
+			<span ng-if="(signupForm.phone.$invalid || signupForm.phone.required) && signupForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+		</div>
+		<div class="col-sm-10 col-md-10 col-lg-10" style="margin-top: 10px;">
+			<label>Favourite Menu No: <input type="text" name="shortName" ng-model="signUpCtrl.shortName" placeholder="Menu Items Short Name" style="margin-left: 0.1em;" ng-blur="signUpCtrl.checkShortName()"/></label>
+			<span ng-if="!signUpCtrl.isShortNameValid && signupForm.shortName.$touched">No such menu number exists</span>
+		</div>
+		<div class="col-sm-4 col-md-4 col-lg-4" style="margin-top: 20px;">
+			<button ui-sref="#" class="block center-block" style="color: #000000;" ng-disabled="signupForm.$invalid"
+          ng-click="signUpCtrl.submit()">Submit</button>
+		</div>
+		<div style="margin-top: 10px;">
+            Form valid? {{ signupForm.$valid }}
+  		</div>
+
+	</form>
+</div>
+</div>
