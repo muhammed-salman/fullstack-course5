@@ -5,17 +5,9 @@ angular.module('common')
 .service('SignUpService', SignUpService);
 
 
-SignUpService.$inject = [];
-function SignUpService() {
+SignUpService.$inject = ['$http','ApiPath'];
+function SignUpService($http,ApiPath) {
   var service = this;
-
-  service.firstName=null;
-
-  service.lastName=null;
-
-  service.email=null;
-
-  service.phoneNumber=null;
 }
 
 

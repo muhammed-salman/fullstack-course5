@@ -45,20 +45,9 @@ function routeConfig ($stateProvider) {
       url: '/signup',
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignUpController',
-      controllerAs: 'signUpCtrl'
+      controllerAs: 'signUpCtrl',
       // resolve: {
-      //   firstName: ['SignUpService',function(SignUpService){
-      //     return SignUpService.firstName;
-      //   }],
-      //   lastName: ['SignUpService',function(SignUpService){
-      //     return SignUpService.lastName;
-      //   }],
-      //   email: ['SignUpService',function(SignUpService){
-      //     return SignUpService.email;
-      //   }],
-      //   phoneNumber: ['SignUpService',function(SignUpService){
-      //     return SignUpService.phoneNumber;
-      //   }]
+      //     Service: ['SignUpService']
       // }
     });
 }

@@ -4,33 +4,32 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['$http', 'ApiPath'];
-function SignUpController($http, ApiPath) {
+SignUpController.$inject = ['$http','ApiPath'];
+function SignUpController($http,ApiPath) {
   var $ctrl = this;
-  $ctrl.firstName=null;
-  $ctrl.lastName=null;
-  $ctrl.email=null;
-  $ctrl.phoneNumber=null;
-  $ctrl.shortName=null;
+  $ctrl.regData={};
   $ctrl.isShortNameValid=false;
   $ctrl.completed=false;
+
   $ctrl.checkShortName=function(){
-  	var config = {};
-    if ($ctrl.shortName) {
-      config.params = {'short_name': $ctrl.shortName};
+    var menuid=null;
+    if ($ctrl.regData.shortName) {
+      menuid = $ctrl.regData.shortName;
     }
 
-    return $http.get(ApiPath + '/menu_items.json', config).then(
-    	function (response) {
-     		$ctrl.isShortNameValid=true;
-    	}, 
-    	function (response) {
-			$ctrl.isShortNameValid=false;    
-    	}
-    );
+    return $http.get(ApiPath +'/menu_items/'+menuid+".json")
+    .then(function (response) {
+            $ctrl.isShortNameValid=true;
+            console.log($ctrl.isShortNameValid);
+          },function (response){
+            $ctrl.isShortNameValid=false;
+            console.log($ctrl.isShortNameValid);
+          }
+      );
   };
+
   $ctrl.submit=function(){
-  	$ctrl.completed=true;
+    $ctrl.completed=true;
   };
 }
 
