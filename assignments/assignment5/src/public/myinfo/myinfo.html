@@ -1,3 +1,21 @@
 <div class="container">
-    <my-info regData="signUpCtrl.regData" completed="signUpCtrl.completed"></my-info>
+ <div class="row">
+  <div class="center-block col-sm-12 col-md-12 col-lg-12">
+    <div ng-if="myInfoCtrl.regData.completed">
+      <h1 class="text-center">Your Registration Details</h1>
+      <div>
+        <div>First Name: {{myInfoCtrl.regData.firstName}}</div>
+        <div>Last Name: {{myInfoCtrl.regData.lastName}}</div>
+        <div>Email: {{myInfoCtrl.regData.email}}</div>
+        <div>Phone Number: {{myInfoCtrl.regData.phoneNumber}}</div>
+        <div>Favourite Menu No: {{myInfoCtrl.regData.shortName}}</div>
+      	<hr><br>
+      	<menu-item menu-item="myInfoCtrl.regData.dish"></menu-item>
+      </div>
+    </div>
+    <div ng-if="!myInfoCtrl.regData.completed">
+      <h5 class="text-center">{{myInfoCtrl.regData.isShortNameValid}}Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h5>
+    </div>
+   </div>
+  </div>
 </div>

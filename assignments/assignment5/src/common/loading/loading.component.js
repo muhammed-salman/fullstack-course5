@@ -15,6 +15,7 @@ function LoadingController ($rootScope) {
 
   $ctrl.$onInit = function() {
     $ctrl.show = false;
+    $rootScope.hide=true;
     listener = $rootScope.$on('spinner:activate', onSpinnerActivate);
   };
 
@@ -24,6 +25,7 @@ function LoadingController ($rootScope) {
 
   function onSpinnerActivate(event, data) {
     $ctrl.show = data.on;
+    $rootScope.hide=true;
   }
 }
 

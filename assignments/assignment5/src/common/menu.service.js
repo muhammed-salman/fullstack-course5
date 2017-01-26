@@ -27,8 +27,17 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.saveUser = function (regData) {
+    service.regData = regData;
+  };
+
+  service.getDetails = function () {
+    return service.regData;
+  };
+
+  service.retrieveDish = function (shortName) {
+    return $http.get(ApiPath +'/menu_items/'+ shortName +'.json');
+  };
+
 }
-
-
-
 })();
