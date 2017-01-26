@@ -4,7 +4,7 @@
 	<form name="signupForm" class="signup" novalidate>
 		<div class="col-sm-10 col-md-10 col-lg-10 " >
 			<label>First Name : <input type="text" name="firstName" ng-model="signUpCtrl.regData.firstName" style="margin-left: 3.5em;" required minlength="3" ng-maxlength="30" placeholder="Max: 30 Characters. Min: 3 Characters" /></label>
-			<!-- {{signUpCtrl.firstName}} -->
+			{{signUpCtrl.regData.firstName}}
 			 <span
             ng-if="(signupForm.firstName.$error.minlength || signupForm.firstName.$error.required) && signupForm.firstName.$touched">
             First Name must be at least 3 characters long
@@ -43,7 +43,7 @@
 			<span ng-if="!signUpCtrl.isShortNameValid && signupForm.shortName.$touched">No such menu number exists</span>
 		</div>
 		<div class="col-sm-4 col-md-4 col-lg-4" style="margin-top: 20px;">
-			<button ui-sref="#" class="block center-block" style="color: #000000;" ng-disabled="signupForm.$invalid"
+			<button  class="block center-block" style="color: #000000;" ng-disabled="signupForm.$invalid"
           ng-click="signUpCtrl.submit()">Submit</button>
 		</div>
 		<div style="margin-top: 10px;">

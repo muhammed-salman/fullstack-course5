@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="center-block col-sm-12 col-md-12 col-lg-12">
+    <div ng-if="$ctrl.completed">
+      <h1 class="text-center">Your Registration Details</h1>
+      <div>
+        <span>First Name: {{$ctrl.regData.firstName}}</span>
+        <span>Last Name: {{$ctrl.regData.lastName}}</span>
+        <span>Email: {{$ctrl.regData.email}}</span>
+        <span>Phone Number: {{$ctrl.regData.phoneNumber}}</span>
+        <span>Favourite Menu No: {{$ctrl.regData.shortName}}</span>
+      </div>
+    </div>
+    <div ng-if="!$ctrl.completed">
+      <h5 class="text-center">{{$ctrl.isShortNameValid}}Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h5>
+    </div>
+      <!-- <div class="menu-item-tile col-md-10"> -->
+      <!-- div class="menu-item-photo">
+        <div>{{$ctrl.regData.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.menuItem.short_name}}.jpg" alt="{{$ctrl.menuItem.name}}">
+      </div>
+      <div class="menu-item-price">{{$ctrl.menuItem.price_small | currency}}<span> {{$ctrl.menuItem.small_portion_name}}</span> {{$ctrl.menuItem.price_large | currency}} <span>{{$ctrl.menuItem.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{$ctrl.menuItem.name}}</h3>
+      <p class="menu-item-details">{{$ctrl.menuItem.description}}</p>
+    </div> -->
+  <!-- </div> -->
+      <hr class="visible-xs">
+    </div>
+  </div>

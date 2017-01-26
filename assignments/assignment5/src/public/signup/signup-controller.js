@@ -4,8 +4,8 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['$http','ApiPath'];
-function SignUpController($http,ApiPath) {
+SignUpController.$inject = ['$http','ApiPath','$state'];
+function SignUpController($http,ApiPath,$state) {
   var $ctrl = this;
   $ctrl.regData={};
   $ctrl.isShortNameValid=false;
@@ -20,16 +20,17 @@ function SignUpController($http,ApiPath) {
     return $http.get(ApiPath +'/menu_items/'+menuid+".json")
     .then(function (response) {
             $ctrl.isShortNameValid=true;
-            console.log($ctrl.isShortNameValid);
+            // console.log($ctrl.isShortNameValid);
           },function (response){
             $ctrl.isShortNameValid=false;
-            console.log($ctrl.isShortNameValid);
+            // console.log($ctrl.isShortNameValid);
           }
       );
   };
 
   $ctrl.submit=function(){
     $ctrl.completed=true;
+    $state.go('public.myinfo');
   };
 }
 
